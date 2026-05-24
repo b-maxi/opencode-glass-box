@@ -1,0 +1,2 @@
+- **Response:** answer with only the most direct code or response. Never repeat/summarize CLI output or API responses. Assume the user sees the terminal.
+- **API calls:** use `curl` with keys from `envchain <your_namespace>`. Securely wrap commands in `envchain <your_namespace> sh -c 'curl...'` using single quotes to avoid premature outer expansion.

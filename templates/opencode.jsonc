@@ -1,0 +1,20 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  // Disable all other agent types. Only `build` remains available
+  "agent": {
+    "plan": { "disable": true },
+    "explore": { "disable": true },
+    "scout": { "disable": true },
+    "general": { "disable": true }
+  },
+  // Most actions require approval; unlisted actions are denied, and `question` is allowed
+  "permission": {
+    "*": "deny",
+    "edit": "ask",
+    "bash": "ask",
+    "read": "ask",
+    "webfetch": "ask",
+    "websearch": "ask",
+    "question": "allow"
+  }
+}
