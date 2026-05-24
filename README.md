@@ -1,6 +1,6 @@
 # opencode-glass-box
 
-<img width="323" height="221" alt="image" src="https://github.com/user-attachments/assets/990157a2-274e-4f73-b26d-01db8eba6258" />
+<img width="323" height="221" alt="Cat with glass by Belle Johnson" src="Cat-with-glass-by-belle-johnson.jpg" />
 
 
 Use this if you want to test AI agent workflows with full visibility and manual approval before moving to a more autonomous setup.
