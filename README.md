@@ -24,7 +24,7 @@ Use both templates for the full glass-box workflow:
 What each file does:
 
 - `opencode.jsonc` keeps only the `build` agent type and puts most actions behind approval prompts.
-- `AGENTS.md` keeps responses terse and tells the agent to use raw `curl` with your secret wrapper.
+- `AGENTS.md` keeps responses short and tells the agent to use raw `curl` with your secret wrapper.
 
 ## Features
 
@@ -34,7 +34,7 @@ What each file does:
 
   This keeps the workflow linear and predictable. It also disables the agent types that would otherwise let you switch modes or delegate work to subagents.
 
-  Start here if you want to inspect one visible execution path before you add more agent types or subagents.
+  This provides one visible execution path to inspect before adding more agent types or subagents.
 
 - **Manual approvals**
 
@@ -61,17 +61,19 @@ What each file does:
 
   Three things keep the context window small:
 
-  - **No output repetition:** agent never repeats or summarizes CLI/API output — you can read the terminal. Configured via **Response** rule in `AGENTS.md`.
-  - **Manual approvals:** only explicitly approved actions run, cutting wasted token spend on wrong paths.
-  - **No subagents:** no hidden parallel work inflating the context.
+  - The agent never repeats or summarizes CLI/API output — you can read the terminal. Configured via **Response** rule in `AGENTS.md`.
+  - Only explicitly approved actions run, cutting wasted token spend on wrong paths.
+  - No hidden parallel work inflating the context.
 
 ## Philosophy
 
 > Build glass box before black box
 
-Do not configure what you have not explicitly observed. Start with 100% manual validation, then graduate to automation as you understand the underlying execution patterns.
+I've learned it's best to watch AI agents closely first.
+Inspect a few runs to build your confidence, then automate only the patterns you've already seen working.
 
-This template came out of learning those patterns the slow way first. I kept the authoring stance personal on purpose: inspect a few runs, build confidence, then automate only what you have already seen work.
+Just sharing my own journey here.
+Hope it helps you on yours :)
 
 ## Documentation
 
