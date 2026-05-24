@@ -16,21 +16,21 @@ Use this if you want to test AI agent workflows with full visibility and manual 
 
 Use both templates for the full glass-box workflow:
 
-1. Copy `templates/opencode.jsonc` to `./opencode.jsonc` in your project root.
-2. Copy `templates/AGENTS.md` to `./AGENTS.md` in your project root.
-3. Replace `envchain <your_namespace>` in `AGENTS.md` with the exact secret-injection tool and namespace your project actually uses.
+1. Copy [`templates/opencode.jsonc`](templates/opencode.jsonc) to `./opencode.jsonc` in your project root.
+2. Copy [`templates/AGENTS.md`](templates/AGENTS.md) to `./AGENTS.md` in your project root.
+3. Replace `envchain <your_namespace>` in [`AGENTS.md`](templates/AGENTS.md) with the exact secret-injection tool and namespace your project actually uses.
 4. Start OpenCode in that project and expect approval prompts for reads, edits, shell commands, and web access.
 
 What each file does:
 
-- `opencode.jsonc` keeps only the `build` agent type and puts most actions behind approval prompts.
-- `AGENTS.md` keeps responses short and tells the agent to use raw `curl` with your secret wrapper.
+- [`opencode.jsonc`](templates/opencode.jsonc) keeps only the `build` agent type and puts most actions behind approval prompts.
+- [`AGENTS.md`](templates/AGENTS.md) keeps responses short and tells the agent to use raw `curl` with your secret wrapper.
 
 ## Features
 
 - **Single agent**
 
-  Configured via `agent` section in `opencode.jsonc`. All types are disabled except `build`.
+  Configured via `agent` section in [`opencode.jsonc`](templates/opencode.jsonc). All types are disabled except `build`.
 
   This keeps the workflow linear and predictable. It also disables the agent types that would otherwise let you switch modes or delegate work to subagents.
 
@@ -38,7 +38,7 @@ What each file does:
 
 - **Manual approvals**
 
-  Configured via `permission` in `opencode.jsonc`.
+  Configured via `permission` in [`opencode.jsonc`](templates/opencode.jsonc).
 
   Most actions require approval, including reads, edits, shell commands, and web access. Only `question` is allowed by default.
   That means the agent pauses before it acts, and you can stop it if the run is heading in the wrong direction.
@@ -48,11 +48,11 @@ What each file does:
 
 - **API calls**
 
-  No MCPs configured in `opencode.jsonc`.
-  `AGENTS.md` tells the agent to run raw `curl` with a credential wrapper.
+  No MCPs configured in [`opencode.jsonc`](templates/opencode.jsonc).
+  [`AGENTS.md`](templates/AGENTS.md) tells the agent to run raw `curl` with a credential wrapper.
 
   The agent writes raw `curl` directly, using `envchain` to inject secrets at runtime without exposing them.
-  If your project uses a different secret-injection tool, replace the `envchain` command in `AGENTS.md` with that exact tool so the agent has one concrete pattern to follow.
+  If your project uses a different secret-injection tool, replace the `envchain` command in [`AGENTS.md`](templates/AGENTS.md) with that exact tool so the agent has one concrete pattern to follow.
 
   This way you get transparent HTTP payloads, but it requires verbose manual error handling and external vault setup.
   Add MCP servers later, once you have repeated the same API patterns enough times that you want a narrower interface, less request boilerplate, and credentials handled in one place.
@@ -61,7 +61,7 @@ What each file does:
 
   Three things keep the context window small:
 
-  - The agent never repeats or summarizes CLI/API output — you can read the terminal. Configured via **Response** rule in `AGENTS.md`.
+  - The agent never repeats or summarizes CLI/API output — you can read the terminal. Configured via **Response** rule in [`AGENTS.md`](templates/AGENTS.md).
   - Only explicitly approved actions run, cutting wasted token spend on wrong paths.
   - No hidden parallel work inflating the context.
 
