@@ -2,8 +2,7 @@
 
 <img width="323" height="221" alt="Cat with glass by Belle Johnson" src="Cat-with-glass-by-belle-johnson.jpg" />
 
-
-Use this in [OpenCode](https://opencode.ai/) if you want to test AI agent workflows with full visibility and manual approval before moving to a more autonomous setup.
+A transparent, human-in-the-loop configuration for [OpenCode](https://opencode.ai/).
 
 ## When to use this
 
